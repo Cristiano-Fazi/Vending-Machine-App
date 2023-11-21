@@ -1,0 +1,71 @@
+﻿1 papaya(s): $4.99
+Total: $4.99
+
+2 coffee(s): $9.98
+Total: $9.98
+Change: $0.02
+
+1 doritos(s): $2.50
+Total: $2.50
+Change: $2.50
+
+1 coffee(s): $4.99
+Total: $4.99
+
+1 coffee(s): $4.99
+Total: $4.99
+
+1 coke(s): $2.50
+1 coffee(s): $4.99
+1 doritos(s): $2.50
+1 kitkat(s): $2.33
+Total: $12.32
+Change: $37.68
+
+1 coffee(s): $4.99
+Total: $4.99
+
+Total: $0.00
+
+1 coffee(s): $4.99
+Total: $4.99
+
+1 coffee(s): $4.99
+Total: $4.99
+
+1 coffee(s): $4.99
+Total: $4.99
+Change: $5.01
+
+2 doritos(s): $5.00
+Total: $5.00
+Change: $0.00
+
+2 coffee(s): $9.98
+Total: $9.98
+
+1 coffee(s): $4.99
+1 doritos(s): $2.50
+1 apple(s): $3.23
+1 papaya(s): $4.99
+Total: $15.71
+Change: $4.29
+
+1 cookie(s): $2.50
+Total: $2.50
+Change: $47.50
+
+1 apple(s): $3.23
+Total: $3.23
+Change: $96.77
+
+1 apple(s): $3.23
+1 papaya(s): $4.99
+Total: $8.22
+Change: $91.78
+
+2 apple(s): $6.46
+1 kitkat(s): $2.33
+Total: $8.79
+Change: $91.21
+

@@ -1,0 +1,548 @@
+﻿<Window x:Class="PIIIProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PIIIProject"
+        mc:Ignorable="d"
+        Title="Vending Machine App" Height="800" Width="600"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="1*" />
+
+            <ColumnDefinition Width="1*" />
+
+            <ColumnDefinition Width="1*" />
+
+            <ColumnDefinition Width="200" />
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="220" />
+
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Border BorderThickness="2" BorderBrush="Black">
+                <Border Width="185" BorderThickness="10" BorderBrush="LightGray">
+                    <Border BorderThickness="1" BorderBrush="Black">
+                        
+                        <!-- This is the actual textblock. Please dont put text in the border -->
+                        <TextBlock x:Name="CodeDisplay" Width="175" Height="60" VerticalAlignment="Center"
+                                   FontSize="40" TextAlignment="Center" TextWrapping="Wrap" Foreground="DarkGreen"
+                                   Background="Black">
+
+                        </TextBlock>
+                        
+                    </Border>
+                </Border>
+            </Border>
+
+
+        </StackPanel>
+        
+        <!-- The following is the keypad -->
+        <Border Margin="10,10,10,45" Grid.Row="1" Grid.RowSpan="2" Grid.Column="4"
+            BorderBrush="Black" CornerRadius="2" BorderThickness="2">
+            <StackPanel Background="LightGray" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+
+                <!-- Letter Buttons -->
+                <Button Width="40" Height="20" Grid.Row="0" Grid.Column="0" Click="key_Click">A</Button>
+                <Button Width="40" Height="20" Grid.Row="1" Grid.Column="0" Click="key_Click">B</Button>
+                <Button Width="40" Height="20" Grid.Row="2" Grid.Column="0" Click="key_Click">C</Button>
+                <Button Width="40" Height="20" Grid.Row="3" Grid.Column="0" Click="key_Click">D</Button>
+
+                <!-- Number Buttons -->
+                <Button Width="40" Height="20" Grid.Row="0" Grid.Column="1" Click="key_Click">1</Button>
+                <Button Width="40" Height="20" Grid.Row="1" Grid.Column="1" Click="key_Click">3</Button>
+                <Button Width="40" Height="20" Grid.Row="2" Grid.Column="1" Click="key_Click">5</Button>
+                <Button Width="40" Height="20" Grid.Row="3" Grid.Column="1" Click="key_Click">7</Button>
+                <Button Width="40" Height="20" Grid.Row="4" Grid.Column="1" Click="key_Click">9</Button>
+
+                <Button Width="40" Height="20" Grid.Row="0" Grid.Column="2" Click="key_Click">2</Button>
+                <Button Width="40" Height="20" Grid.Row="1" Grid.Column="2" Click="key_Click">4</Button>
+                <Button Width="40" Height="20" Grid.Row="2" Grid.Column="2" Click="key_Click">6</Button>
+                <Button Width="40" Height="20" Grid.Row="3" Grid.Column="2" Click="key_Click">8</Button>
+
+            </Grid>
+        </StackPanel>
+        </Border>
+        
+        <!-- Delete and Enter Buttons -->
+        <StackPanel Grid.Row="2" Grid.Column="4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+
+                    <RowDefinition Height="40"/>
+
+                    <RowDefinition Height="46"/>
+                </Grid.RowDefinitions>
+
+
+                <Button Margin="20,10,10,5" Grid.Column="0" Grid.Row="1" Click="keyDel_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                            <GradientStop Color="DarkRed" Offset="0" />
+
+                            <GradientStop Color="IndianRed" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Button.BorderBrush>
+                    Delete</Button>
+
+                <Button Margin="10,10,20,5" Grid.Column="1" Grid.Row="1" Click="keyEnter_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                            <GradientStop Color="ForestGreen" Offset="0" />
+
+                            <GradientStop Color="LightGreen" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Button.BorderBrush>
+                    Enter</Button>
+
+                <Button Margin="20,0,20,25" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Click="keyCart_Click">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="5"/>
+                        </Style>
+                    </Button.Resources>
+                    <Button.BorderBrush>
+                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                            <GradientStop Color="DarkBlue" Offset="0" />
+
+                            <GradientStop Color="LightBlue" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Button.BorderBrush>
+                    Shopping Cart
+                </Button>
+
+            </Grid>
+        </StackPanel>
+        
+        <!-- The Food Objects -->
+        <Border  Grid.Row="0" Grid.Column="0"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+            
+                <StackPanel>
+                    <Image Height="110" x:Name="imgA11" Source="/Images/doritos.png">
+                    
+                    </Image>
+                    
+                    <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                        <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                                   TextAlignment="Center" x:Name="txtA11">
+
+                        </TextBlock>
+                    </Border>
+
+                </StackPanel>
+
+        </Border>
+
+        <Border  Grid.Row="0" Grid.Column="1"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+
+            <StackPanel>
+                <Image Height="110" x:Name="imgA12" Source="/Images/apple.jpg">
+
+                </Image>
+
+                <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                               TextAlignment="Center" x:Name="txtA12"> 
+                        
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+
+        </Border>
+
+        <Border  Grid.Row="0" Grid.Column="2" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+
+            <StackPanel>
+                <Image Height="110" x:Name="imgA13" Source="/Images/papaya.jpg">
+
+                </Image>
+
+                <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                               TextAlignment="Center" x:Name="txtA13">
+
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+
+        </Border>
+
+        <Border  Grid.Row="1" Grid.Column="0" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+
+            <StackPanel>
+                <Image Height="110" x:Name="imgB21" Source="Images/kitkat.png"/>
+
+                <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                               TextAlignment="Center" x:Name="txtB21">
+
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+
+        </Border>
+
+        <Border  Grid.Row="1" Grid.Column="1" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+            
+            <StackPanel>
+                <Image Height="110" x:Name="imgB22" Source="/Images/cookie.jpeg">
+
+                </Image>
+
+                <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                               TextAlignment="Center" x:Name="txtB22">
+
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+            
+        </Border>
+
+        <Border  Grid.Row="1" Grid.Column="2" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+
+            <StackPanel>
+                <Image Height="110" x:Name="imgB23" Source="/Images/coffeeCrisp.png">
+
+                </Image>
+
+                <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                               TextAlignment="Center" x:Name="txtB23">
+
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+
+        </Border>
+
+        <Border  Grid.Row="2" Grid.Column="0" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+
+            <StackPanel>
+                <Image Height="110" x:Name="imgC31" Source="/Images/gum.png">
+
+                </Image>
+
+                <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                               TextAlignment="Center" x:Name="txtC31">
+
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+
+        </Border>
+        
+        <Border  Grid.Row="2" Grid.Column="1" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+            
+            <StackPanel>
+                <Image Height="110" x:Name="imgC32" Source="/Images/gatorade.png">
+
+                </Image>
+
+                <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                               TextAlignment="Center" x:Name="txtC32">
+
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+
+        </Border>
+
+        <Border  Grid.Row="2" Grid.Column="2" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+
+            <StackPanel>
+                <Image Height="110" x:Name="imgC33" Source="/Images/coke.png">
+
+                </Image>
+
+                <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                               TextAlignment="Center" x:Name="txtC33">
+
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+
+        </Border>
+
+        <Border  Grid.Row="3" Grid.Column="0" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+
+            <StackPanel>
+                <Image Height="110" x:Name="imgD41" Source="/Images/sprite.png">
+
+                </Image>
+
+                <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                               TextAlignment="Center" x:Name="txtD41">
+
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+
+        </Border>
+ 
+        <Border  Grid.Row="3" Grid.Column="1" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+
+            <StackPanel>
+                <Image Height="110" x:Name="imgD42" Source="/Images/coffee.png">
+
+                </Image>
+
+                <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                               TextAlignment="Center" x:Name="txtD42">
+
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+
+        </Border>
+
+        <Border  Grid.Row="3" Grid.Column="2" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                BorderThickness="1" BorderBrush="Black" >
+
+            <StackPanel>
+                <Image Height="110" x:Name="imgD43" Source="/Images/monster.png">
+
+                </Image>
+
+                <Border Height="28" BorderThickness="2" BorderBrush="Black">
+                    <TextBlock Height="25" Background="DimGray" FontFamily="Serif" Foreground="White"
+                               TextAlignment="Center" x:Name="txtD43">
+
+                    </TextBlock>
+                </Border>
+
+            </StackPanel>
+
+        </Border>
+        <!-- End of Food Items -->
+        
+        <!-- Cash Slot -->
+        <Grid Grid.Row="2" Grid.Column="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+
+                <RowDefinition Height="1*"/>
+
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+
+            <TextBlock Margin="10,22,10,10"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" 
+                       TextAlignment="Center" FontSize="11">
+                Click on the slit to pay using cash
+            </TextBlock>
+
+            <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+                <Border Margin="10,37,10,10" Height="20" BorderThickness="2" BorderBrush="Black">
+                    <Border BorderThickness="5" BorderBrush="LightGray">
+                        <Border BorderThickness="1" BorderBrush="Black">
+                            <Button Click="btnCash_Click">
+                                <!-- This button is for cash -->
+                            </Button>
+                        </Border>
+                    </Border>
+                </Border>
+            </StackPanel>
+        </Grid >
+        <!-- End of Cash Slot -->
+        
+        
+        <!-- Card Taping Area -->
+        <Grid Grid.Row="3" Grid.Column="4">
+            
+            <Grid.ColumnDefinitions>
+                
+                <ColumnDefinition Width="1*"/>
+
+                <ColumnDefinition Width="1*"/>
+                
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                
+                <RowDefinition Height="20"/>
+
+                <RowDefinition Height="1*"/>
+                
+            </Grid.RowDefinitions>
+
+            
+             <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="15" 
+                     BorderBrush="Black" BorderThickness="2">
+
+                <Grid Background="LightGray">
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="1*"/>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                
+                        <RowDefinition Height="1*"/>
+
+                        <RowDefinition Height="1*"/>
+                
+                    </Grid.RowDefinitions>
+
+                    
+                    <Button Margin="10,10,10,0" BorderBrush="Black" BorderThickness="2"
+                            Background="ForestGreen" Click="btnCard_Click">
+                        Tap Card To Pay
+                    </Button>
+
+                    <TextBlock Grid.Row="1" TextAlignment="Center" Padding="4">
+                        Click the green box above <LineBreak/>
+                        to pay using card
+                    </TextBlock>
+
+                </Grid>
+                
+            </Border>
+            
+        </Grid>
+        <!-- End of Card Taping spot -->
+        
+        
+        <!-- Change Ejector -->
+        <Grid Grid.Row="4" Grid.Column="4">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+
+                
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Column="0" Grid.Row="0">
+                <Border Margin="20" Height="84" BorderThickness="2" BorderBrush="Black">
+                    <Border BorderThickness="10" BorderBrush="LightGray">
+                        <Border BorderThickness="1" BorderBrush="Black">
+                            <TextBlock Background="LightGray"> </TextBlock>
+                        </Border>
+                    </Border>
+                </Border>
+            </StackPanel>
+
+        </Grid>
+
+
+
+        <!-- Food Ejector -->
+        <StackPanel Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3">
+            <Border Margin="20" Height="84" BorderThickness="2" BorderBrush="Black">
+                <Border Height="80" BorderThickness="10" BorderBrush="LightGray">
+                    <Border  Height="60" BorderThickness="1" BorderBrush="Black">
+                        <TextBlock Background="LightGray"></TextBlock>
+                    </Border>
+                </Border>
+            </Border>
+
+
+            <TextBlock Height="30" TextAlignment="Center" FontStyle="Italic" FontFamily="Microsoft Sans Serif" 
+                       x:Name="Credits">
+                Vending Machine App By Kevin Baggott and Cristiano Fazi
+            </TextBlock>
+        </StackPanel>
+        <!-- End of Food Ejector -->
+        
+        
+        
+    </Grid>
+</Window>

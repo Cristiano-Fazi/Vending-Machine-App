@@ -1,0 +1,102 @@
+﻿<Window x:Class="PIIIProject.CashWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PIIIProject"
+        mc:Ignorable="d"
+        Title="CashWindow" Height="450" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="1*" />
+
+            <ColumnDefinition Width="1*" />
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="1*"/>
+
+            <RowDefinition Height="2*"/>
+
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextAlignment="Center"
+                   Margin="5">
+            Please Select the Bill You Will be Paying With
+        </TextBlock>
+        
+        <!-- 5 Dollar Bill -->
+        <Image Grid.Column="0" Grid.Row="1" Margin="5" Source="/Images/5$_Bill.jpg">
+            
+        </Image>
+
+        <!-- 10 Dollar Bill -->
+        <Image Grid.Column="0" Grid.Row="2" Margin="5" Source="/Images/10$_Bill.jpg">
+
+        </Image>
+
+        <!-- 20 Dollar Bill -->
+        <Image Grid.Column="0" Grid.Row="3" Margin="5" Source="/Images/20$_Bill.jpg">
+
+        </Image>
+
+        <!-- 50 Dollar Bill -->
+        <Image Grid.Column="0" Grid.Row="4" Margin="5" Source="/Images/50$_Bill.jpg">
+
+        </Image>
+
+        <!-- 100 Dollar Bill -->
+        <Image Grid.Column="0" Grid.Row="5" Margin="5" Source="/Images/100$_Bill.jpg">
+
+        </Image>
+        
+        
+        <!-- Bill selection Buttons -->
+        <StackPanel x:Name="rdCash" Grid.Row="1" Grid.Column="1" Grid.RowSpan="5">
+            <RadioButton  Margin="0,20,20,20">5$ Bill</RadioButton>
+
+            <RadioButton Margin="0,20,20,20">10$ Bill</RadioButton>
+
+            <RadioButton Margin="0,20,20,20">20$ Bill</RadioButton>
+
+            <RadioButton Margin="0,20,20,20">50$ Bill</RadioButton>
+
+            <RadioButton Margin="0,20,20,20">100$ Bill</RadioButton>
+        </StackPanel>
+
+        
+        
+        <!-- Submit payment button -->
+        <Button Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Margin="20" FontSize="20" 
+                FontWeight="Medium" BorderThickness="2.5" Click="btnPay_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <Button.BorderBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                    <GradientStop Color="DarkGoldenrod" Offset="0" />
+                    <GradientStop Color="red" Offset="0.25"/>
+                    <GradientStop Color="Green" Offset="0.5" />
+                    <GradientStop Color="Purple" Offset="0.75"/>
+                    <GradientStop Color="CadetBlue" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Button.BorderBrush>
+            Confirm Payment
+        </Button>
+        
+    </Grid>
+</Window>

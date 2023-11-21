@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="apple.jpg" />
+    <None Remove="coffee.png" />
+    <None Remove="coffeeCrisp.png" />
+    <None Remove="coke.png" />
+    <None Remove="cookie.jpeg" />
+    <None Remove="doritos.png" />
+    <None Remove="gatorade.png" />
+    <None Remove="gum.png" />
+    <None Remove="Images\10%24_Bill.jpg" />
+    <None Remove="Images\100%24_Bill.jpg" />
+    <None Remove="Images\20%24_Bill.jpg" />
+    <None Remove="Images\5%24_Bill.jpg" />
+    <None Remove="Images\50%24_Bill.jpg" />
+    <None Remove="Images\apple.jpg" />
+    <None Remove="Images\coffee.png" />
+    <None Remove="Images\coffeeCrisp.png" />
+    <None Remove="Images\coke.png" />
+    <None Remove="Images\cookie.jpeg" />
+    <None Remove="Images\doritos.png" />
+    <None Remove="Images\empty.jpg" />
+    <None Remove="Images\gatorade.png" />
+    <None Remove="Images\gum.png" />
+    <None Remove="Images\kitkat.png" />
+    <None Remove="Images\monster.png" />
+    <None Remove="Images\papaya.jpg" />
+    <None Remove="Images\sprite.png" />
+    <None Remove="monster.png" />
+    <None Remove="papaya.jpg" />
+    <None Remove="sprite.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\10$_Bill.jpg" />
+    <Resource Include="Images\100$_Bill.jpg" />
+    <Resource Include="Images\20$_Bill.jpg" />
+    <Resource Include="Images\5$_Bill.jpg" />
+    <Resource Include="Images\50$_Bill.jpg" />
+    <Resource Include="Images\apple.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\coke.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\kitkat.png" />
+    <Resource Include="Images\coffee.png" />
+    <Resource Include="Images\coffeeCrisp.png" />
+    <Resource Include="Images\cookie.jpeg" />
+    <Resource Include="Images\doritos.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\empty.jpg" />
+    <Resource Include="Images\gatorade.png" />
+    <Resource Include="Images\gum.png" />
+    <Resource Include="Images\monster.png" />
+    <Resource Include="Images\papaya.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\sprite.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Data\stock.csv">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Data\Transactions.txt">
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
